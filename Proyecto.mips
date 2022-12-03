@@ -1,4 +1,4 @@
-# proyecto mips
+# proyecto 
 #
 #
 #
@@ -16,6 +16,8 @@ charA:      .byte 'A'
 chara:      .byte 'a'
 charB:      .byte 'B'
 charb:      .byte 'b'
+charC:      .byte 'C'
+charc:      .byte 'c'
 
 .text
 
@@ -36,11 +38,14 @@ li $t3 0   # para que no me genere problemas luego
 # introduzco el arreglo auxiliar
 la $a2 auxiliar
 
-li $t8 0 # me ayuda a saber si es la primera vez que entro al ciclo o no 
+#li $t8 0 # me ayuda a saber si es la primera vez que entro al ciclo o no 
 
 # Recorro el arreglo y voy guardando en un arreglo auxiliar
+
 strlen:
     li $t0, 0 # initialize the count to zero
+    # introduzco el arreglo auxiliar
+    la $a2 auxiliar
     # Primer loop 
     Firstloop:
         lb $t1, 0($a3) # load the next character into t1
@@ -56,7 +61,7 @@ strlen:
 	beq $t0 20 siguiente
 	j Firstloop 
 	vuelta:	
-	    la $t4 salto
+	    #la $t4 salto
 	    li $v0 4
 	    la $a0 salto #($t4)
 	    syscall
@@ -86,11 +91,11 @@ siguiente:
     # Segundo loop  
     Secondloop:              
         beq  $t3 21 restar21
-        li $t3 0 #inicializo el contador 
+        li $t3 0 #inicializo el contador de los caracteres del arreglo auxiliar
         
         #ble $t0 20  menor20
-        bne  $t8 0  menor20      
-        addi $t8 $t8 1
+        #bne  $t8 0  menor20      
+        #addi $t8 $t8 1
         sub  $a2 $a2 $t0 #vuelvo a poner el apuntador en el inicio del arreglo
         j siguiente1
         menor20:
@@ -104,6 +109,11 @@ siguiente:
         
         # Tercer loop
         Thirdloop:      
+             
+             
+             beq $t3 $t0 SiguienteLineaLetra # nueva linea
+             
+             
              lb $t4, 0($a2) # load the next character into t4          
              beqz $t4, SiguienteLineaLetra # check for the null character
              
@@ -116,6 +126,11 @@ siguiente:
              beq $t4 $t7 B
              lb $t7 charb   # Si el primer caracter es igual a la letra b
              beq $t4 $t7 B
+             
+             lb $t7 charC   # Si el primer caracter es igual a la letra B
+             beq $t4 $t7 C
+             lb $t7 charc   # Si el primer caracter es igual a la letra b
+             beq $t4 $t7 C
             
              
              beq $t4 $t6 Nada # Si el primer caracter es igual a espacio
@@ -332,4 +347,3 @@ finish:
 # el primer for es para recorrer el arreglo
 # el segundo es para recorrer linea por linea 
 # el tercero es para recorrer letra por letra del arreglo chiquito 
-
