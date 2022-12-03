@@ -4,7 +4,7 @@
 # Alumnos: Miguel Angel Arturo Gordillo Arismendi  18-10807
 #          Jesús David Cuellar                     15-10345
 #
-# La idea de la implementaciòn se encuentra en el informe del proyecto
+# La idea de la implementación se encuentra en el informe del proyecto
 #
 
 .data 
@@ -14,6 +14,7 @@ auxiliar:   .asciiz "                    " # arreglo que contendra los 20 caract
 estrellita: .byte '*'
 espacio:    .byte ' '
 salto:      .asciiz "\n"
+pregunta:   .asciiz "Escriba la oracion que quiere imprimir: "
 
 charA:      .byte 'A'        # Letras que me permitiran saber a que funcion ir
 chara:      .byte 'a'
@@ -23,6 +24,11 @@ charC:      .byte 'C'
 charc:      .byte 'c'
 
 .text
+
+# Pregunto:
+li $v0 4
+la $a0 pregunta
+syscall
 
 #introduzco caracteres estrellita y espacio
 lb $t5 estrellita
