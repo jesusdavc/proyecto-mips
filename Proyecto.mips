@@ -1,10 +1,10 @@
-# Universidad Sim贸n Bol铆var
-# Asignatura: Organizaci贸n del Computador
+# Universidad Sim脙鲁n Bol脙颅var
+# Asignatura: Organizaci脙鲁n del Computador
 # proyecto 1  2/12/2022
 # Alumnos: Miguel Angel Arturo Gordillo Arismendi  18-10807
-#          Jes煤s David Cuellar                     15-10345
+#          Jes脙潞s David Cuellar                     15-10345
 #
-# La idea de la implementaci贸n se encuentra en el informe del proyecto
+# La idea de la implementaci脙鲁n se encuentra en el informe del proyecto
 #
 
 .data 
@@ -105,7 +105,7 @@ siguiente:
             lb $t4, 0($a2) # load the next character of auxiliar array into t4          
             
             #Para letras A,a
-            lb $t7 charA   # Si el caracter es igual a la letra A voy a la funcion que imprime la linea A
+            lb $t7 charA   # Si el caracter es igual a la letra A voy a la funcion que imprime la linea de A
             beq $t4 $t7 A
             lb $t7 chara   # Si el caracter es igual a la letra a voy a la funcion que imprime la linea de A
             beq $t4 $t7 A
@@ -170,7 +170,7 @@ siguiente:
                  j Thirdloop
                         
 
-# Funcion que imprime las letra A
+# Funcion que imprime la letra A
 A:
 # Si el contador de las lineas es igual 0,1,2,3 o 4, voy a la correspondiente linea para ser impresa
 beq $t2 $zero primeralineA
@@ -262,7 +262,7 @@ beq $t2 4     segundalineaA  # Ya que la linea 4 y 5 son iguales a la segunda li
     
     j next
 
-# Funcion que imprime las letra B
+# Funcion que imprime la letra B
 B:
 
 beq $t2 $zero primeralineaB
@@ -327,7 +327,7 @@ beq $t2 4     primeralineaB
     
     j next
 
-#Funci髇 que imprime la letra C
+#Funci贸n que imprime la letra C
 C:
 
 beq $t2 $zero primeralineaC
@@ -400,7 +400,7 @@ beq $t2 4     primeralineaC
     
     j next
 
-#Funci髇 que imprime las letra D
+#Funci贸n que imprime las letra D
 D:
 
 beq $t2 $zero primeralineaD
@@ -466,7 +466,7 @@ beq $t2 4     primeralineaD
     
     j next
 
-#Funci髇 que imprime la letra E    
+#Funci贸n que imprime la letra E    
 E:
 
 beq $t2 $zero primeralineaE
@@ -532,7 +532,7 @@ beq $t2 4     primeralineaE
     j next
     
     
-#Funci髇 que imprime las letra F    
+#Funci贸n que imprime las letra F    
 F:
 
 beq $t2 $zero primeralineaF
@@ -597,7 +597,7 @@ beq $t2 4     segundalineaE
     
     j next
  
-#Funci髇 que imprime la letra G
+#Funci贸n que imprime la letra G
 G:
 
 beq $t2 $zero primeralineaG
@@ -735,7 +735,7 @@ beq $t2 4     primeralineaC
     j next
 
 
-#Funci髇 que imprime la letra H
+#Funci贸n que imprime la letra H
 H:
 
 beq $t2 $zero primeralineaH
