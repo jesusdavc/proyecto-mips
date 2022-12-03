@@ -30,6 +30,8 @@ charF:      .byte 'F'
 charf:      .byte 'f'
 charG:      .byte 'G'
 charg:      .byte 'g'
+charH:      .byte 'H'
+charh:      .byte 'h'
 .text
 
 # Pregunto:
@@ -143,6 +145,13 @@ siguiente:
             beq $t4 $t7 G
             lb $t7 charg   # lo mismo para g
             beq $t4 $t7 G
+
+
+	    #Para letras H,h
+            lb $t7 charH   # lo mismo para H
+            beq $t4 $t7 H
+            lb $t7 charh   # lo mismo para h
+            beq $t4 $t7 H
             
             
             beq $t4 $t6 Nada # Si el caracter es igual a espacio, voy a la funcion Nada, que me imprime la linea del espacio
@@ -523,7 +532,7 @@ beq $t2 4     primeralineaE
     j next
     
     
- #Función que imprime las letra F    
+#Función que imprime las letra F    
 F:
 
 beq $t2 $zero primeralineaF
@@ -713,6 +722,80 @@ beq $t2 4     primeralineaC
 
     li $v0 11
     la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+
+#Función que imprime la letra H
+H:
+
+beq $t2 $zero primeralineaH
+beq $t2 1     primeralineaH
+beq $t2 2     segundalineaH 
+beq $t2 3     primeralineaH
+beq $t2 4     primeralineaH                   
+      
+    primeralineaH:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+
+    segundalineaH:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
     syscall
 
     li $v0 11
