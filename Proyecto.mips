@@ -24,6 +24,12 @@ charC:      .byte 'C'
 charc:      .byte 'c'
 charD:      .byte 'D'
 chard:      .byte 'd'
+charE:      .byte 'E'
+chare:      .byte 'e'
+charF:      .byte 'F'
+charf:      .byte 'f'
+charG:      .byte 'G'
+charg:      .byte 'g'
 .text
 
 # Pregunto:
@@ -92,32 +98,54 @@ siguiente:
         # Tercer loop el cual recorrera letra por letra del arreglo auxiliar
         Thirdloop:                                
              
-             beq $t3 $t0 SiguienteLineaLetra # si ambos contadores son iguales, voy a la linea siguiente de las letras          
+            beq $t3 $t0 SiguienteLineaLetra # si ambos contadores son iguales, voy a la linea siguiente de las letras          
              
-             lb $t4, 0($a2) # load the next character of auxiliar array into t4          
+            lb $t4, 0($a2) # load the next character of auxiliar array into t4          
+            
+            #Para letras A,a
+            lb $t7 charA   # Si el caracter es igual a la letra A voy a la funcion que imprime la linea A
+            beq $t4 $t7 A
+            lb $t7 chara   # Si el caracter es igual a la letra a voy a la funcion que imprime la linea de A
+            beq $t4 $t7 A
              
-             lb $t7 charA   # Si el caracter es igual a la letra A voy a la funcion que imprime la linea A
-             beq $t4 $t7 A
-             lb $t7 chara   # Si el caracter es igual a la letra a voy a la funcion que imprime la linea de A
-             beq $t4 $t7 A
-             
-             lb $t7 charB   # lo mismo para B
-             beq $t4 $t7 B
-             lb $t7 charb   # lo mismo para b
-             beq $t4 $t7 B
-             
+            #Para letras B,b
+            lb $t7 charB   # lo mismo para B
+            beq $t4 $t7 B
+            lb $t7 charb   # lo mismo para b
+            beq $t4 $t7 B
+            
+            #Para letras C,c
             lb $t7 charC   # lo mismo para C
             beq $t4 $t7 C
             lb $t7 charc   # lo mismo para c
             beq $t4 $t7 C
             
+            #Para letras D,d
             lb $t7 charD   # lo mismo para D
             beq $t4 $t7 D
             lb $t7 chard   # lo mismo para d
             beq $t4 $t7 D
-             
-             
-             beq $t4 $t6 Nada # Si el caracter es igual a espacio, voy a la funcion Nada, que me imprime la linea del espacio
+            
+            #Para letras E,e
+            lb $t7 charE   # lo mismo para E
+            beq $t4 $t7 E
+            lb $t7 chare   # lo mismo para e
+            beq $t4 $t7 E
+            
+            #Para letras F,f
+            lb $t7 charF   # lo mismo para F
+            beq $t4 $t7 F
+            lb $t7 charf   # lo mismo para f
+            beq $t4 $t7 F
+
+	    #Para letras G,g
+            lb $t7 charG   # lo mismo para G
+            beq $t4 $t7 G
+            lb $t7 charg   # lo mismo para g
+            beq $t4 $t7 G
+            
+            
+            beq $t4 $t6 Nada # Si el caracter es igual a espacio, voy a la funcion Nada, que me imprime la linea del espacio
                                      
              
              
@@ -133,7 +161,7 @@ siguiente:
                  j Thirdloop
                         
 
-# Funcion que imprime las lineas correspondientes a A
+# Funcion que imprime las letra A
 A:
 # Si el contador de las lineas es igual 0,1,2,3 o 4, voy a la correspondiente linea para ser impresa
 beq $t2 $zero primeralineA
@@ -225,7 +253,7 @@ beq $t2 4     segundalineaA  # Ya que la linea 4 y 5 son iguales a la segunda li
     
     j next
 
-# Funcion que imprime las lineas correspondientes a A
+# Funcion que imprime las letra B
 B:
 
 beq $t2 $zero primeralineaB
@@ -301,7 +329,7 @@ beq $t2 4     primeralineaC
       
     primeralineaC:    
     li $v0 11
-    la $a0 ($t5)
+    la $a0 ($t6)
     syscall
 
     li $v0 11
@@ -321,7 +349,11 @@ beq $t2 4     primeralineaC
     syscall
     
     li $v0 11
-    la $a0 ($t5)
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
     syscall
     
     j next
@@ -353,9 +385,13 @@ beq $t2 4     primeralineaC
     la $a0 ($t6)
     syscall
     
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
     j next
 
-#Función que imprime la de D
+#Función que imprime las letra D
 D:
 
 beq $t2 $zero primeralineaD
@@ -380,14 +416,15 @@ beq $t2 4     primeralineaD
     li $v0 11
     la $a0 ($t5)
     syscall
-
-    li $v0 11
-    la $a0 ($t5)
-    syscall
     
     li $v0 11
     la $a0 ($t6)
     syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
     
     j next
 
@@ -411,6 +448,270 @@ beq $t2 4     primeralineaD
     syscall
 
     li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+#Función que imprime la letra E    
+E:
+
+beq $t2 $zero primeralineaE
+beq $t2 1     segundalineaE
+beq $t2 2     primeralineaE 
+beq $t2 3     segundalineaE
+beq $t2 4     primeralineaE                   
+      
+    primeralineaE:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+
+    segundalineaE:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+    
+    
+ #Función que imprime las letra F    
+F:
+
+beq $t2 $zero primeralineaF
+beq $t2 1     segundalineaF
+beq $t2 2     primeralineaE 
+beq $t2 3     segundalineaE
+beq $t2 4     segundalineaE                   
+      
+    primeralineaF:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+
+    segundalineaF:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+ 
+#Función que imprime la letra G
+G:
+
+beq $t2 $zero primeralineaG
+beq $t2 1     segundalineaG
+beq $t2 2     terceralineaG 
+beq $t2 3     cuartalineaG
+beq $t2 4     primeralineaC                   
+      
+    primeralineaG:    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+
+    segundalineaG:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+    terceralineaG:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+ 
+    cuartalineaG:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
     la $a0 ($t6)
     syscall
 
@@ -418,7 +719,15 @@ beq $t2 4     primeralineaD
     la $a0 ($t5)
     syscall
     
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
     j next
+
+
+
+
 # Funcion que imprime las lineas correspondientes a espacio
 Nada:
     li $v0 11
