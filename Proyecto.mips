@@ -22,7 +22,8 @@ charB:      .byte 'B'
 charb:      .byte 'b'
 charC:      .byte 'C'
 charc:      .byte 'c'
-
+charD:      .byte 'D'
+chard:      .byte 'd'
 .text
 
 # Pregunto:
@@ -104,6 +105,17 @@ siguiente:
              beq $t4 $t7 B
              lb $t7 charb   # lo mismo para b
              beq $t4 $t7 B
+             
+            lb $t7 charC   # lo mismo para C
+            beq $t4 $t7 C
+            lb $t7 charc   # lo mismo para c
+            beq $t4 $t7 C
+            
+            lb $t7 charD   # lo mismo para D
+            beq $t4 $t7 D
+            lb $t7 chard   # lo mismo para d
+            beq $t4 $t7 D
+             
              
              beq $t4 $t6 Nada # Si el caracter es igual a espacio, voy a la funcion Nada, que me imprime la linea del espacio
                                      
@@ -278,6 +290,135 @@ beq $t2 4     primeralineaB
     
     j next
 
+#Función que imprime la letra C
+C:
+
+beq $t2 $zero primeralineaC
+beq $t2 1     segundalineaC
+beq $t2 2     segundalineaC 
+beq $t2 3     segundalineaC
+beq $t2 4     primeralineaC                   
+      
+    primeralineaC:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    j next
+
+
+    segundalineaC:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+#Función que imprime la de D
+D:
+
+beq $t2 $zero primeralineaD
+beq $t2 1     segundalineaD
+beq $t2 2     segundalineaD 
+beq $t2 3     segundalineaD
+beq $t2 4     primeralineaD                   
+      
+    primeralineaD:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+
+    segundalineaD:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    j next
 # Funcion que imprime las lineas correspondientes a espacio
 Nada:
     li $v0 11
@@ -305,10 +446,6 @@ Nada:
     syscall
     
     j next
-
-# Aqui escribes las demas funciones jesus, y borras este comentario
-
-
 
 
 
