@@ -1,4 +1,4 @@
-# proyecto 
+# proyecto mips
 #
 #
 #
@@ -65,7 +65,7 @@ strlen:
    
     	#jr $ra
     	#li $v0, 1
-    	#subi  $t0 $t0 1  # esto solo es para saber de que tamaño es el arreglo 
+    	#subi  $t0 $t0 1  # esto solo es para saber de que tamaÃ±o es el arreglo 
     	#move $a0, $t0
     	#syscall
  
