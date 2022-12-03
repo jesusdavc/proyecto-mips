@@ -1,0 +1,335 @@
+# proyecto 
+#
+#
+#
+#
+
+.data 
+
+string:     .space 1024
+auxiliar:   .asciiz "                    " # arreglo que contendra los 20 caracteres
+estrellita: .byte '*'
+espacio:    .byte ' '
+salto:      .asciiz "\n"
+
+charA:      .byte 'A'
+chara:      .byte 'a'
+charB:      .byte 'B'
+charb:      .byte 'b'
+
+.text
+
+#introduzco caracteres estrellita y espacio
+lb $t5 estrellita
+lb $t6 espacio
+#la $t2 final
+
+# introduzco el string
+li $v0 8
+la $a0 string
+li $a1 1024
+syscall
+move $a3 $a0
+
+li $t3 0   # para que no me genere problemas luego 
+
+# introduzco el arreglo auxiliar
+la $a2 auxiliar
+
+li $t8 0 # me ayuda a saber si es la primera vez que entro al ciclo o no 
+
+# Recorro el arreglo y voy guardando en un arreglo auxiliar
+strlen:
+    li $t0, 0 # initialize the count to zero
+    # Primer loop 
+    Firstloop:
+        lb $t1, 0($a3) # load the next character into t1
+	beqz $t1, siguienteM # check for the null character
+	addi $a3, $a3, 1 # increment the string pointer
+	addi $t0, $t0, 1 # increment the count
+	
+	# voy cargando el arreglo auxiliar
+	sb $t1 0($a2)
+	addi $a2, $a2, 1 # increment the auxiliar pointer	
+	
+	# if si el contador es igual a 20, ya tengo el maximo de caracteres que pueden haber en una linea
+	beq $t0 20 siguiente
+	j Firstloop 
+	vuelta:	
+	    la $t4 salto
+	    li $v0 4
+	    la $a0 salto #($t4)
+	    syscall
+	    beqz $t1 finish  # si $t1 es null termino
+	    j strlen # return to the top of the loop
+   
+    	#jr $ra
+    	#li $v0, 1
+    	#subi  $t0 $t0 1  # esto solo es para saber de que tamaño es el arreglo 
+    	#move $a0, $t0
+    	#syscall
+ 
+siguienteM:
+    #subi $a1 $a1 1   
+siguiente:
+    #subi $a1, $a1, 1 # increment the string pointer
+    li $t2 0 #inicializo en contador para hacer las lineas respectivas 
+    j Secondloop
+    SiguienteLineaLetra:
+        li $v0 4
+	la $a0 salto #($t4)  # cargo el salto de linea
+	syscall
+        addi $t2 $t2 1
+        beq  $t2 5 vuelta
+        j Secondloop
+   
+    # Segundo loop  
+    Secondloop:              
+        beq  $t3 21 restar21
+        li $t3 0 #inicializo el contador 
+        
+        #ble $t0 20  menor20
+        bne  $t8 0  menor20      
+        addi $t8 $t8 1
+        sub  $a2 $a2 $t0 #vuelvo a poner el apuntador en el inicio del arreglo
+        j siguiente1
+        menor20:
+            subi $a2 $a2 20  #vuelvo a poner el apuntador en el inicio del arreglo
+            j siguiente1
+            restar21:
+                subi $a2 $a2 21  #vuelvo a poner el apuntador en el inicio del arreglo
+                #li $t3 0
+                j siguiente1           
+        siguiente1:
+        
+        # Tercer loop
+        Thirdloop:      
+             lb $t4, 0($a2) # load the next character into t4          
+             beqz $t4, SiguienteLineaLetra # check for the null character
+             
+             lb $t7 charA   # Si el primer caracter es igual a la letra A
+             beq $t4 $t7 A
+             lb $t7 chara   # Si el primer caracter es igual a la letra a
+             beq $t4 $t7 A
+             
+             lb $t7 charB   # Si el primer caracter es igual a la letra B
+             beq $t4 $t7 B
+             lb $t7 charb   # Si el primer caracter es igual a la letra b
+             beq $t4 $t7 B
+            
+             
+             beq $t4 $t6 Nada # Si el primer caracter es igual a espacio
+                         
+             
+             next: # paso al siguiente caracter 
+                 
+	         addi $a2, $a2, 1 # increment the string pointer
+	         addi $t3, $t3, 1 # increment the count    
+                 j Thirdloop
+                        
+
+
+A:
+
+beq $t2 $zero primeralineA
+beq $t2 1     segundalineaA    
+beq $t2 2     terceralineaA    
+beq $t2 3     segundalineaA
+beq $t2 4     segundalineaA  # Ya que la linea 4 y 5 son iguales a la segunda linea de A    
+    
+    primeralineA:    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+        
+    segundalineaA:
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+  
+ 
+    terceralineaA:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+B:
+
+beq $t2 $zero primeralineaB
+beq $t2 1     segundalineaB
+beq $t2 2     primeralineaB 
+beq $t2 3     segundalineaB
+beq $t2 4     primeralineaB                   
+      
+    primeralineaB:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+
+    segundalineaB:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    j next
+
+Nada:
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    j next
+
+finish:
+
+# Quiero ver como imprimo solo la primera letra de auxiliar
+#subi $a1, $a1, 4
+#li $v0 4
+#la $a0 0($a1)
+#syscall
+#li $v0 4
+#addi $a1 $a1 1
+#la $a0 0($a1)
+#syscall
+
+#li $v0 1
+#la $a0 ($t0)
+#syscall
+
+
+
+
+# el primer for es para recorrer el arreglo
+# el segundo es para recorrer linea por linea 
+# el tercero es para recorrer letra por letra del arreglo chiquito 
+
