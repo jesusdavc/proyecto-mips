@@ -400,7 +400,7 @@ beq $t2 4     primeralineaC
     
     j next
 
-#Función que imprime las letra D
+#Función que imprime la letra D
 D:
 
 beq $t2 $zero primeralineaD
@@ -532,7 +532,7 @@ beq $t2 4     primeralineaE
     j next
     
     
-#Función que imprime las letra F    
+#Función que imprime la letra F    
 F:
 
 beq $t2 $zero primeralineaF
