@@ -1835,7 +1835,7 @@ beq $t2 4     segundalineaR
       
     primeralineaR:    
     li $v0 11
-    la $a0 ($t6)
+    la $a0 ($t5)
     syscall
 
     li $v0 11
@@ -1955,8 +1955,8 @@ S:
 
 beq $t2 $zero primeralineaS
 beq $t2 1     segundalineaS
-beq $t2 2     primeralineaS
-beq $t2 3     terceralineaS
+beq $t2 2     terceralineaS
+beq $t2 3     cuartalineaS
 beq $t2 4     primeralineaS                 
       
     primeralineaS:    
@@ -2024,6 +2024,36 @@ beq $t2 4     primeralineaS
     syscall
 
     li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+
+    cuartalineaS:
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
     la $a0 ($t6)
     syscall
 
@@ -2045,7 +2075,6 @@ beq $t2 4     primeralineaS
     
     
     j next
-
 
 #Funcion que imprime la letra T
 T:
