@@ -1,10 +1,10 @@
-# Universidad Simón Bolívar
-# Asignatura: Organización del Computador
+# Universidad Simï¿½n Bolï¿½var
+# Asignatura: Organizaciï¿½n del Computador
 # proyecto 1  2/12/2022
 # Alumnos: Miguel Angel Arturo Gordillo Arismendi  18-10807
-#          Jesús David Cuéllar                     15-10345
+#          Jesï¿½s David Cuï¿½llar                     15-10345
 #
-# La idea de la implementaciónn se encuentra en el informe del proyecto
+# La idea de la implementaciï¿½nn se encuentra en el informe del proyecto
 #
 
 .data 
@@ -404,7 +404,7 @@ beq $t2 4     segundalineaA  # Ya que la linea 4 y 5 son iguales a la segunda li
     
     j next
 
-# Funcion que imprime las letra B
+# Funcion que imprime la letra B
 B:
 
 beq $t2 $zero primeralineaB
@@ -469,7 +469,7 @@ beq $t2 4     primeralineaB
     
     j next
 
-#Función que imprime la letra C
+#FunciÃ³n que imprime la letra C
 C:
 
 beq $t2 $zero primeralineaC
@@ -536,7 +536,7 @@ beq $t2 4     primeralineaC
     
     j next
 
-#Función que imprime las letra D
+#FunciÃ³n que imprime la letra D
 D:
 
 beq $t2 $zero primeralineaD
@@ -602,7 +602,7 @@ beq $t2 4     primeralineaD
     
     j next
 
-#Función que imprime la letra E    
+#FunciÃ³n que imprime la letra E    
 E:
 
 beq $t2 $zero primeralineaE
@@ -668,7 +668,7 @@ beq $t2 4     primeralineaE
     j next
     
     
-#Función que imprime las letra F    
+#FunciÃ³n que imprime la letra F    
 F:
 
 beq $t2 $zero primeralineaF
@@ -733,7 +733,7 @@ beq $t2 4     segundalineaE
     
     j next
  
-#Función que imprime la letra G
+#FunciÃ³n que imprime la letra G
 G:
 
 beq $t2 $zero primeralineaG
@@ -860,7 +860,7 @@ beq $t2 4     primeralineaC
     j next
 
 
-#Función que imprime la letra H
+#Funciï¿½n que imprime la letra H
 H:
 
 beq $t2 $zero primeralineaH
@@ -926,7 +926,7 @@ beq $t2 4     primeralineaH
 
     j next
 
-#Función que imprime la letra I
+#Funciï¿½n que imprime la letra I
 I:
 
 beq $t2 $zero primeralineaI
@@ -994,7 +994,7 @@ beq $t2 4     primeralineaI
     
     j next
 
-#Función que imprime la letra J
+#Funciï¿½n que imprime la letra J
 J:
 
 beq $t2 $zero primeralineaJ
@@ -1119,7 +1119,7 @@ beq $t2 4     cuartalineaJ
     j next
 
 
-#Función que imprime la letra K
+#Funciï¿½n que imprime la letra K
 K:
 
 beq $t2 $zero primeralineaK
@@ -1215,7 +1215,7 @@ beq $t2 4     primeralineaK
    
     j next
 
-#Función que imprime la L
+#Funciï¿½n que imprime la L
 L:
 
 beq $t2 $zero primeralineaL
@@ -1283,7 +1283,7 @@ beq $t2 4     segundalineaL
     
     j next
     
-#Función que imprime la M    
+#Funciï¿½n que imprime la M    
 M:
 
 beq $t2 $zero primeralineaM
@@ -1380,7 +1380,7 @@ beq $t2 4     primeralineaM
     
     j next
 
-#Función que imprime la letra N
+#Funciï¿½n que imprime la letra N
 N:
 
 beq $t2 $zero primeralineaN
@@ -1506,7 +1506,7 @@ beq $t2 4     primeralineaN
     
     j next
     
-#Función que imprime la letra O
+#Funciï¿½n que imprime la letra O
 O:
 
 beq $t2 $zero primeralineaO
@@ -1573,7 +1573,7 @@ beq $t2 4     primeralineaO
     
     j next
 
-#Función que imprime la letra P
+#Funciï¿½n que imprime la letra P
 P:
 
 beq $t2 $zero primeralineaP
@@ -1669,7 +1669,7 @@ beq $t2 4     terceralineaP
     
     j next
 
-#Función que imprime la letra Q
+#Funciï¿½n que imprime la letra Q
 Q:
 
 beq $t2 $zero primeralineaQ
@@ -1824,7 +1824,7 @@ beq $t2 4     quintalineaQ
     j next
 
 
-#Función que imprime la letra R
+#Funciï¿½n que imprime la letra R
 R:
 
 beq $t2 $zero primeralineaR
@@ -1950,7 +1950,7 @@ beq $t2 4     segundalineaR
     j next
 
 
-#Función que imprime la letra S
+#Funciï¿½n que imprime la letra S
 S:
 
 beq $t2 $zero primeralineaS
@@ -2047,7 +2047,7 @@ beq $t2 4     primeralineaS
     j next
 
 
-#Función que imprime la letra T
+#Funciï¿½n que imprime la letra T
 T:
 
 beq $t2 $zero primeralineaT
@@ -2116,7 +2116,7 @@ beq $t2 4     segundalineaT
     j next
 
 
-#Función que imprime la letra U
+#Funciï¿½n que imprime la letra U
 U:
 
 beq $t2 $zero segundalineaU
@@ -2184,7 +2184,7 @@ beq $t2 4     primeralineaU
     j next
     
     
-#Función que imprime la letra V
+#Funciï¿½n que imprime la letra V
 V:
 
 beq $t2 $zero segundalineaV
@@ -2280,7 +2280,7 @@ beq $t2 4     primeralineaV
     j next
     
 
-#Función que imprime la letra W
+#Funciï¿½n que imprime la letra W
 W:
 
 beq $t2 $zero segundalineaW
@@ -2375,7 +2375,7 @@ beq $t2 4     primeralineaW
  
     j next    
     
-#Función que imprime la letra X
+#Funciï¿½n que imprime la letra X
 X:
 
 beq $t2 $zero primeralineaX
@@ -2468,7 +2468,7 @@ beq $t2 4     primeralineaX
     
     j next
 
-#Función que imprime la letra Y
+#Funciï¿½n que imprime la letra Y
 Y:
 
 beq $t2 $zero primeralineaY
@@ -2564,7 +2564,7 @@ beq $t2 4     terceralineaY
     
     j next
     
-#Función que imprime la letra Z
+#Funciï¿½n que imprime la letra Z
 Z:
 
 beq $t2 $zero primeralineaZ
