@@ -32,6 +32,42 @@ charG:      .byte 'G'
 charg:      .byte 'g'
 charH:      .byte 'H'
 charh:      .byte 'h'
+charI:      .byte 'I'
+chari:      .byte 'i'
+charJ:      .byte 'J'
+charj:      .byte 'j'
+charK:      .byte 'K'
+chark:      .byte 'k'
+charL:      .byte 'L'
+charl:      .byte 'l'
+charM:      .byte 'M'
+charm:      .byte 'm'
+charN:      .byte 'N'
+charn:      .byte 'n'
+charO:      .byte 'O'
+charo:      .byte 'o'
+charP:      .byte 'P'
+charp:      .byte 'p'
+charQ:      .byte 'Q'
+charq:      .byte 'q'
+charR:      .byte 'R'
+charr:      .byte 'r'
+charS:      .byte 'S'
+chars:      .byte 's'
+charT:      .byte 'T'
+chart:      .byte 't'
+charU:      .byte 'U'
+charu:      .byte 'u'
+charV:      .byte 'V'
+charv:      .byte 'v'
+charW:      .byte 'W'
+charw:      .byte 'w'
+charX:      .byte 'X'
+charx:      .byte 'x'
+charY:      .byte 'Y'
+chary:      .byte 'y'
+charZ:      .byte 'Z'
+charz:      .byte 'z'
 .text
 
 # Pregunto:
@@ -153,18 +189,94 @@ siguiente:
             lb $t7 charh   # lo mismo para h
             beq $t4 $t7 H
             
+	    #Para letras I,i
+            lb $t7 charI   # lo mismo para I
+            beq $t4 $t7 I
+            lb $t7 chari   # lo mismo para i
+            beq $t4 $t7 I
+
+	    #Para letras J,j
+            lb $t7 charJ   # lo mismo para J
+            beq $t4 $t7 J
+            lb $t7 charj   # lo mismo para j
+            beq $t4 $t7 J
+            
+	    #Para letras K,k
+            lb $t7 charK   # lo mismo para K
+            beq $t4 $t7 K
+            lb $t7 chark   # lo mismo para k
+            beq $t4 $t7 K
+            
+	    #Para letras L,l
+            lb $t7 charL   # lo mismo para L
+            beq $t4 $t7 L
+            lb $t7 charl   # lo mismo para l
+            beq $t4 $t7 L
+            
+            #Para letras M,m
+            lb $t7 charM   # lo mismo para M
+            beq $t4 $t7 M
+            lb $t7 charm   # lo mismo para m
+            beq $t4 $t7 M
+            
+            #Para letras N,n
+            lb $t7 charN   # lo mismo para N
+            beq $t4 $t7 N
+            lb $t7 charn   # lo mismo para n
+            beq $t4 $t7 N
+
+            
+            #Para letras O,o
+            lb $t7 charO   # lo mismo para O
+            beq $t4 $t7 O
+            lb $t7 charo   # lo mismo para o
+            beq $t4 $t7 O
+            
+ 
+            #Para letras P,p
+            lb $t7 charP   # lo mismo para P
+            beq $t4 $t7 P
+            lb $t7 charp   # lo mismo para p
+            beq $t4 $t7 P
+            
+            
+            #Para letras Q,q
+            lb $t7 charQ   # lo mismo para Q
+            beq $t4 $t7 Q
+            lb $t7 charq   # lo mismo para q
+            beq $t4 $t7 Q
+            
+            #Para letras R,r
+            lb $t7 charR   # lo mismo para R
+            beq $t4 $t7 R
+            lb $t7 charr  # lo mismo para r
+            beq $t4 $t7 R
+            
+            
+            #Para letras S,s
+            lb $t7 charS  # lo mismo para S
+            beq $t4 $t7 S
+            lb $t7 chars  # lo mismo para s
+            beq $t4 $t7 S
+            
+           #Para letras T,t
+            lb $t7 charT #lo mismo para T
+            beq $t4 $t7 T
+            lb $t7 chart # lo mismo para t
+            beq $t4 $t7 T
+           
+            #Para letras U,u
+            lb $t7 charU#lo mismo para U
+            beq $t4 $t7 U
+            lb $t7 charu#lo mimo para u
+            beq $t4 $t7 U
             
             beq $t4 $t6 Nada # Si el caracter es igual a espacio, voy a la funcion Nada, que me imprime la linea del espacio
                                      
              
              
-             # Aqui escribes los demas casos jesus, y borras este comentario
-             
-             
-             
-             
-             
-             next: # paso al siguiente caracter                
+
+            next: # paso al siguiente caracter                
 	         addi $a2, $a2, 1 # increment the auxiliar pointer
 	         addi $t3, $t3, 1 # increment the count of chars    
                  j Thirdloop
@@ -234,7 +346,6 @@ beq $t2 4     segundalineaA  # Ya que la linea 4 y 5 son iguales a la segunda li
     
     j next
   
- 
     terceralineaA:    
     li $v0 11
     la $a0 ($t5)
@@ -361,10 +472,7 @@ beq $t2 4     primeralineaC
     la $a0 ($t6)
     syscall
     
-    li $v0 11
-    la $a0 ($t6)
-    syscall
-    
+
     j next
 
 
@@ -394,9 +502,6 @@ beq $t2 4     primeralineaC
     la $a0 ($t6)
     syscall
     
-    li $v0 11
-    la $a0 ($t6)
-    syscall
     
     j next
 
@@ -631,9 +736,6 @@ beq $t2 4     primeralineaC
     la $a0 ($t6)
     syscall
     
-    li $v0 11
-    la $a0 ($t6)
-    syscall
     
     j next
 
@@ -664,9 +766,6 @@ beq $t2 4     primeralineaC
     la $a0 ($t6)
     syscall
     
-    li $v0 11
-    la $a0 ($t6)
-    syscall
     
     j next
 
@@ -681,7 +780,7 @@ beq $t2 4     primeralineaC
     syscall
 
     li $v0 11
-    la $a0 ($t5)
+    la $a0 ($t6)
     syscall
 
     li $v0 11
@@ -692,13 +791,11 @@ beq $t2 4     primeralineaC
     la $a0 ($t5)
     syscall
 
-    li $v0 11
-    la $a0 ($t5)
-    syscall
-    
     li $v0 11
     la $a0 ($t6)
     syscall
+    
+
     
     j next
  
@@ -721,16 +818,13 @@ beq $t2 4     primeralineaC
     syscall
 
     li $v0 11
-    la $a0 ($t6)
+    la $a0 ($t5)
     syscall
 
     li $v0 11
-    la $a0 ($t5)
-    syscall
-    
-    li $v0 11
     la $a0 ($t6)
     syscall
+    
     
     j next
 
@@ -762,16 +856,13 @@ beq $t2 4     primeralineaH
     syscall
 
     li $v0 11
-    la $a0 ($t6)
-    syscall
-    
-    li $v0 11
     la $a0 ($t5)
     syscall
     
     li $v0 11
     la $a0 ($t6)
     syscall
+    
     
     j next
 
@@ -799,6 +890,106 @@ beq $t2 4     primeralineaH
     syscall
 
     li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    j next
+
+#Función que imprime la letra I
+I:
+
+beq $t2 $zero primeralineaI
+beq $t2 1     segundalineaI
+beq $t2 2     segundalineaI 
+beq $t2 3     segundalineaI
+beq $t2 4     primeralineaI                   
+      
+    primeralineaI:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+ 
+    
+    j next
+
+
+    segundalineaI:
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+#Función que imprime la letra J
+J:
+
+beq $t2 $zero primeralineaJ
+beq $t2 1     segundalineaJ
+beq $t2 2     segundalineaJ 
+beq $t2 3     terceralineaJ
+beq $t2 4     cuartalineaJ                   
+      
+    primeralineaJ:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
     la $a0 ($t5)
     syscall
     
@@ -809,7 +1000,1157 @@ beq $t2 4     primeralineaH
     j next
 
 
+    segundalineaJ:
 
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+    
+    terceralineaJ:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+    cuartalineaJ:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+
+#Función que imprime la letra K
+K:
+
+beq $t2 $zero primeralineaK
+beq $t2 1     segundalineaK
+beq $t2 2     terceralineaK 
+beq $t2 3     segundalineaK
+beq $t2 4     primeralineaK                   
+      
+    primeralineaK:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+ 
+    
+    j next
+
+
+    segundalineaK:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+   
+    j next
+    
+     
+    terceralineaK:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+   
+    j next
+
+#Función que imprime la L
+L:
+
+beq $t2 $zero primeralineaL
+beq $t2 1     primeralineaL
+beq $t2 2     primeralineaL 
+beq $t2 3     primeralineaL
+beq $t2 4     segundalineaL                   
+      
+    primeralineaL:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+ 
+    
+    j next
+
+
+    segundalineaL:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+    
+#Función que imprime la M    
+M:
+
+beq $t2 $zero primeralineaM
+beq $t2 1     segundalineaM
+beq $t2 2     terceralineaM 
+beq $t2 3     primeralineaM
+beq $t2 4     primeralineaM                   
+      
+    primeralineaM:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+ 
+    
+    j next
+
+
+    segundalineaM:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+    
+    terceralineaM:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+#Función que imprime la letra N
+N:
+
+beq $t2 $zero primeralineaN
+beq $t2 1     segundalineaN
+beq $t2 2     terceralineaN 
+beq $t2 3     cuartalineaN
+beq $t2 4     primeralineaN                   
+      
+    primeralineaN:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+ 
+    j next
+
+
+    segundalineaN:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+    
+    terceralineaN:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+    
+    
+    cuartalineaN:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+    
+#Función que imprime la letra O
+O:
+
+beq $t2 $zero primeralineaO
+beq $t2 1     segundalineaO
+beq $t2 2     segundalineaO
+beq $t2 3     segundalineaO
+beq $t2 4     primeralineaO                  
+      
+    primeralineaO:    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+ 
+    j next
+
+
+    segundalineaO:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+#Función que imprime la letra P
+P:
+
+beq $t2 $zero primeralineaP
+beq $t2 1     segundalineaP
+beq $t2 2     primeralineaP
+beq $t2 3     terceralineaP
+beq $t2 4     terceralineaP                   
+      
+    primeralineaP:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+ 
+    j next
+
+
+    segundalineaP:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+    terceralineaP:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+#Función que imprime la letra Q
+Q:
+
+beq $t2 $zero primeralineaQ
+beq $t2 1     segundalineaQ
+beq $t2 2     terceralineaQ
+beq $t2 3     cuartalineaQ
+beq $t2 4     quintalineaQ                  
+      
+    primeralineaQ:    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+ 
+    j next
+
+
+    segundalineaQ:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+    terceralineaQ:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+    cuartalineaQ:
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+    quintalineaQ:
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+
+#Función que imprime la letra R
+R:
+
+beq $t2 $zero primeralineaR
+beq $t2 1     segundalineaR
+beq $t2 2     primeralineaP
+beq $t2 3     terceralineaR
+beq $t2 4     cuartalineaR                   
+      
+    primeralineaR:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+ 
+    j next
+
+
+    segundalineaR:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+    terceralineaR:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+    cuartalineaR:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+
+#Función que imprime la letra S
+S:
+
+beq $t2 $zero primeralineaS
+beq $t2 1     segundalineaS
+beq $t2 2     primeralineaS
+beq $t2 3     terceralineaS
+beq $t2 4     primeralineaS                 
+      
+    primeralineaS:    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+ 
+    j next
+
+
+    segundalineaS:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+    terceralineaS:
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+
+#Función que imprime la letra T
+T:
+
+beq $t2 $zero primeralineaT
+beq $t2 1     segundalineaT
+beq $t2 2     segundalineaT
+beq $t2 3     segundalineaT
+beq $t2 4     segundalineaT                  
+      
+    primeralineaT:    
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+ 
+    
+    j next
+
+
+    segundalineaT:
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
+
+
+#Función que imprime la letra U
+U:
+
+beq $t2 $zero segundalineaU
+beq $t2 1     segundalineaU
+beq $t2 2     segundalineaU
+beq $t2 3     segundalineaU
+beq $t2 4     primeralineaU                  
+      
+    primeralineaU:    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+ 
+    j next
+
+
+    segundalineaU:
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+
+    li $v0 11
+    la $a0 ($t5)
+    syscall
+
+    li $v0 11
+    la $a0 ($t6)
+    syscall
+    
+    
+    j next
 
 # Funcion que imprime las lineas correspondientes a espacio
 Nada:
